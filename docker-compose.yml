@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    web:
+        image: nginx:alpine
+        ports:
+            - "8080:80"
+        volumes:
+            - ./site.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - code-network
+    php:
+        # image: reloni/fastcgi:latest
+        image: php:fpm-alpine
+        volumes:
+            - ./code:/var/www/html
+        networks:
+            - code-network
+
+networks:
+    code-network:
+        driver: bridge
