@@ -5,7 +5,7 @@ development:
   stage: build
   script:
     - docker build -f dockerfile -t reloni/fastcgi:$CI_COMMIT_REF_NAME .
-    - docker push reloni/files-fastcgi:$CI_COMMIT_REF_NAME
+    - docker push reloni/fastcgi:$CI_COMMIT_REF_NAME
   only:
     - rick
     - morty
